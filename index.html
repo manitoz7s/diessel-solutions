@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diessel Solutions — Gestão da Fazenda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sistema de login educacional -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <img src="assets/diesel-logo.png" alt="Diesel Solutions" class="login-logo">
+      <h1>Acesso ao sistema</h1>
+      <p>Entre para acessar o painel da fazenda.</p>
+
+      <form id="loginForm">
+        <label for="loginUser">Usuário</label>
+        <input id="loginUser" type="text" placeholder="Digite seu usuário" autocomplete="username" required>
+
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" type="password" placeholder="Digite sua senha" autocomplete="current-password" required>
+
+        <button type="submit" class="primary login-button">Entrar</button>
+        <div class="login-error" id="loginError"></div>
+      </form>
+
+      <div class="demo-login">
+        <b>Login para apresentação</b>
+        <span>Usuário: <strong>admin</strong></span>
+        <span>Senha: <strong>1234</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/diesel-logo.png" alt="Diesel Solutions" class="brand-logo"></div>
+    <nav>
+      <button class="nav-item active" data-page="dashboard">🏠 <span>Dashboard</span></button>
+      <button class="nav-item" data-page="mapa">🗺️ <span>Mapa da Fazenda</span></button>
+      <button class="nav-item" data-page="maquinas">🚜 <span>Máquinas</span></button>
+      <button class="nav-item" data-page="producao">🌾 <span>Produção</span></button>
+      <button class="nav-item" data-page="funcionarios">👨‍🌾 <span>Funcionários</span></button>
+      <button class="nav-item" data-page="combustivel">⛽ <span>Combustível</span></button>
+      <button class="nav-item" data-page="manutencao">🔧 <span>Manutenção</span></button>
+      <button class="nav-item" data-page="relatorios">📊 <span>Relatórios</span></button>
+    </nav>
+    <div class="sidebar-bottom"><span>●</span> Sistema operacional</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand"><b>Diesel</b> Solutions</div>
+      <div class="farm-select">Fazenda Boa Vista ▾</div>
+      <div class="top-actions"><button class="icon-btn" id="notifications">🔔<i>3</i></button><div class="avatar">CS</div><button class="logout-btn" id="logoutBtn" title="Sair">↪ Sair</button></div>
+    </header>
+
+    <section id="dashboard" class="page active">
+      <div class="page-head"><div><p class="eyebrow">SEXTA-FEIRA, 11 DE SETEMBRO</p><h1>Olá, Kauã Welson 👋</h1><p>Monitore o que está acontecendo na sua fazenda hoje.</p></div><button class="primary" data-page-go="mapa">🗺️ Ver mapa</button></div>
+      <div class="stats">
+        <div class="stat-card"><div class="stat-icon green">🚜</div><span>Máquinas ativas</span><strong>4 <small>/ 5</small></strong><em>+1 hoje</em></div>
+        <div class="stat-card"><div class="stat-icon gold">🌾</div><span>Colheita atual</span><strong>92,4 <small>t</small></strong><em>+8,2% esta semana</em></div>
+        <div class="stat-card"><div class="stat-icon blue">⛽</div><span>Combustível</span><strong>68 <small>%</small></strong><em>2.841 L no mês</em></div>
+        <div class="stat-card"><div class="stat-icon purple">👨‍🌾</div><span>Funcionários</span><strong>18</strong><em>16 trabalhando</em></div>
+      </div>
+      <div class="grid-2">
+        <div class="panel map-panel"><div class="panel-head"><div><h2>Mapa da Fazenda</h2><p>Localização das máquinas em tempo real</p></div><span class="live">● AO VIVO</span></div><div class="farm-map realistic-map" id="miniMap">
+  <div class="map-grid"></div><div class="contour c1"></div><div class="contour c2"></div><div class="contour c3"></div>
+  <div class="field f1"><span>MILHO</span><small>120 ha</small></div>
+  <div class="field f2"><span>SOJA</span><small>86 ha</small></div>
+  <div class="field f3"><span>TRIGO</span><small>64 ha</small></div>
+  <div class="pond">💧</div><div class="road r1"></div><div class="road r2"></div><div class="road r3"></div>
+  <button class="tractor t1">🚜<b>01</b></button><button class="tractor t2">🚜<b>02</b></button><button class="tractor t3">🚜<b>03</b></button><button class="tractor t4">🚜<b>04</b></button>
+  <div class="farm-building">🏠<small>Sede</small></div><div class="map-compass">N<br><b>↑</b></div>
+  <div class="map-scale">0 ─── 500 m</div>
+</div></div>
+        <div class="panel"><div class="panel-head"><div><h2>Alertas</h2><p>O que precisa da sua atenção</p></div><button class="text-btn" data-page-go="manutencao">Ver todos</button></div><div class="alerts"><div class="alert danger"><b>⛽ Trator 04 com combustível baixo</b><span>18% restante • abastecimento recomendado</span></div><div class="alert warning"><b>🔧 Manutenção próxima — Trator 02</b><span>Restam 12 horas de operação</span></div><div class="alert info"><b>🌧️ Possibilidade de chuva amanhã</b><span>Planeje a colheita da área 03</span></div></div></div>
+      </div>
+      <div class="grid-2 lower"><div class="panel"><div class="panel-head"><div><h2>Produção semanal</h2><p>Toneladas colhidas</p></div><span class="badge">Esta semana</span></div><div class="bars"><div><i style="height:42%"></i><span>Seg</span></div><div><i style="height:58%"></i><span>Ter</span></div><div><i style="height:51%"></i><span>Qua</span></div><div><i style="height:72%"></i><span>Qui</span></div><div><i style="height:88%"></i><span>Sex</span></div><div><i style="height:62%"></i><span>Sáb</span></div></div></div><div class="panel"><div class="panel-head"><div><h2>Funcionários</h2><p>Status de hoje</p></div><button class="text-btn" data-page-go="funcionarios">Gerenciar</button></div><div class="employee-row"><div class="avatar small">JS</div><div><b>João Souza</b><span>Operador • Trator 01</span></div><strong class="online">● Trabalhando</strong></div><div class="employee-row"><div class="avatar small">CS</div><div><b>José Antônio</b><span>Operador • Trator 02</span></div><strong class="online">● Trabalhando</strong></div><div class="employee-row"><div class="avatar small">PS</div><div><b>José Reis</b><span>Manutenção</span></div><strong class="offline">● Em pausa</strong></div></div></div>
+    </section>
+
+    <section id="mapa" class="page">
+      <div class="page-head"><div><p class="eyebrow">MONITORAMENTO</p><h1>Mapa da Fazenda</h1><p>Acompanhe as máquinas e áreas de cultivo.</p></div><span class="live big">● GPS SIMULADO</span></div>
+      <div class="panel big-map-wrap"><div class="farm-map big-map realistic-map" id="bigMap">
+  <div class="map-grid"></div><div class="contour c1"></div><div class="contour c2"></div><div class="contour c3"></div>
+  <div class="field f1"><span>MILHO</span><small>Área 01 • 120 ha</small></div>
+  <div class="field f2"><span>SOJA</span><small>Área 02 • 86 ha</small></div>
+  <div class="field f3"><span>TRIGO</span><small>Área 03 • 64 ha</small></div>
+  <div class="field f4"><span>PASTO</span><small>Área 04 • 156 ha</small></div>
+  <div class="pond">💧</div><div class="road r1"></div><div class="road r2"></div><div class="road r3"></div>
+  <button class="tractor t1">🚜<b>01</b></button><button class="tractor t2">🚜<b>02</b></button><button class="tractor t3">🚜<b>03</b></button><button class="tractor t4">🚜<b>04</b></button>
+  <div class="farm-building">🏠<small>Sede</small></div><div class="fuel-station">⛽<small>Abastecimento</small></div>
+  <div class="map-compass">N<br><b>↑</b></div><div class="map-scale">0 ───── 500 m ───── 1 km</div>
+</div><div class="map-legend"><span>🟢 Em operação</span><span>🟡 Parado</span><span>🔴 Atenção</span><span>🟩 Área cultivada</span></div></div>
+    </section>
+
+    <section id="maquinas" class="page">
+      <div class="page-head"><div><p class="eyebrow">FROTA</p><h1>Máquinas</h1><p>Controle de desempenho e localização dos seus equipamentos.</p></div><button class="primary" id="addMachine">＋ Adicionar máquina</button></div>
+      <div class="machine-grid">
+        <div class="machine-card"><div class="machine-top"><span class="machine-emoji">🚜</span><span class="status green-status">● Em operação</span></div><h2>Trator 01</h2><p>John Deere • 5090E</p><div class="machine-data"><span>Velocidade<strong id="speed1">24 km/h</strong></span><span>Combustível<strong>73%</strong></span><span>Vel. média<strong>18 km/h</strong></span><span>Distância<strong>42 km</strong></span></div><button class="outline details" data-machine="Trator 01">Ver detalhes</button></div>
+        <div class="machine-card"><div class="machine-top"><span class="machine-emoji">🚜</span><span class="status green-status">● Em operação</span></div><h2>Trator 02</h2><p>Massey Ferguson • 492</p><div class="machine-data"><span>Velocidade<strong>18 km/h</strong></span><span>Combustível<strong>52%</strong></span><span>Vel. média<strong>16 km/h</strong></span><span>Distância<strong>37 km</strong></span></div><button class="outline details" data-machine="Trator 02">Ver detalhes</button></div>
+        <div class="machine-card"><div class="machine-top"><span class="machine-emoji">🚜</span><span class="status yellow-status">● Parado</span></div><h2>Trator 03</h2><p>New Holland • T4S</p><div class="machine-data"><span>Velocidade<strong>0 km/h</strong></span><span>Combustível<strong>91%</strong></span><span>Vel. média<strong>14 km/h</strong></span><span>Distância<strong>22 km</strong></span></div><button class="outline details" data-machine="Trator 03">Ver detalhes</button></div>
+        <div class="machine-card danger-card"><div class="machine-top"><span class="machine-emoji">🚜</span><span class="status red-status">● Combustível baixo</span></div><h2>Trator 04</h2><p>Valmet • 980</p><div class="machine-data"><span>Velocidade<strong>11 km/h</strong></span><span>Combustível<strong>18%</strong></span><span>Vel. média<strong>12 km/h</strong></span><span>Distância<strong>19 km</strong></span></div><button class="outline details" data-machine="Trator 04">Ver detalhes</button></div></div>
+    </section>
+
+    <section id="producao" class="page">
+      <div class="page-head"><div><p class="eyebrow">AGRICULTURA</p><h1>Produção</h1><p>Acompanhe a colheita por cultura e por área.</p></div><button class="primary" id="addHarvest">＋ Registrar colheita</button></div>
+      <div class="stats"><div class="stat-card"><div class="stat-icon gold">🌽</div><span>Milho</span><strong>42,8 <small>t</small></strong><em>46% do total</em></div><div class="stat-card"><div class="stat-icon green">🌱</div><span>Soja</span><strong>31,4 <small>t</small></strong><em>34% do total</em></div><div class="stat-card"><div class="stat-icon blue">🌾</div><span>Trigo</span><strong>18,2 <small>t</small></strong><em>20% do total</em></div><div class="stat-card"><div class="stat-icon purple">📦</div><span>Total</span><strong>92,4 <small>t</small></strong><em>+8,2% na semana</em></div></div>
+      <div class="panel table-panel"><div class="panel-head"><div><h2>Últimas colheitas</h2><p>Registros recentes da fazenda</p></div></div><table><thead><tr><th>Data</th><th>Cultura</th><th>Área</th><th>Quantidade</th><th>Responsável</th></tr></thead><tbody><tr><td>27/08</td><td>🌽 Milho</td><td>Área 01</td><td><b>8,4 t</b></td><td>João Souza</td></tr><tr><td>27/08</td><td>🌱 Soja</td><td>Área 02</td><td><b>6,8 t</b></td><td>José Antônio</td></tr><tr><td>26/08</td><td>🌾 Trigo</td><td>Área 03</td><td><b>5,2 t</b></td><td>Carlos</td></tr><tr><td>26/08</td><td>🌽 Milho</td><td>Área 01</td><td><b>7,9 t</b></td><td>João Souza</td></tr></tbody></table></div>
+    </section>
+
+    <section id="funcionarios" class="page">
+      <div class="page-head"><div><p class="eyebrow">EQUIPE</p><h1>Funcionários</h1><p>Controle de presença e jornada de trabalho.</p></div><button class="primary" id="clockBtn">🟢 Bater ponto</button></div>
+      <div class="clock-panel"><div><span>Seu ponto de hoje</span><strong id="clockStatus">Nenhum ponto registrado</strong></div><div class="big-clock" id="clock">--:--:--</div></div>
+      <div class="panel table-panel"><div class="panel-head"><div><h2>Equipe de hoje</h2><p>18 funcionários cadastrados • 16 trabalhando</p></div></div><table><thead><tr><th>Funcionário</th><th>Função</th><th>Entrada</th><th>Saída</th><th>Status</th></tr></thead><tbody><tr><td><b>João Souza</b></td><td>Operador</td><td>07:02</td><td>—</td><td><span class="pill green-pill">● Trabalhando</span></td></tr><tr><td><b>Carlos Roberto</b></td><td>Operador</td><td>06:58</td><td>—</td><td><span class="pill green-pill">● Trabalhando</span></td></tr><tr><td><b>José antônio</b></td><td>Manutenção</td><td>07:15</td><td>—</td><td><span class="pill yellow-pill">● Pausa</span></td></tr><tr><td><b>José Reis</b></td><td>Operador</td><td>06:55</td><td>17:01</td><td><span class="pill gray-pill">● Saiu</span></td></tr></tbody></table></div>
+    </section>
+
+    <section id="combustivel" class="page">
+      <div class="page-head"><div><p class="eyebrow">RECURSOS</p><h1>Combustível</h1><p>Monitore o nível e o consumo da frota.</p></div><button class="primary" id="refuel">＋ Registrar abastecimento</button></div>
+      <div class="fuel-list">
+        <div class="fuel-card"><div><b>🚜 Trator 01</b><span>Consumo médio: 8,2 L/h</span></div><strong>73%</strong><div class="progress"><i style="width:73%"></i></div><small>438 L disponíveis</small></div>
+        <div class="fuel-card"><div><b>🚜 Trator 02</b><span>Consumo médio: 10,1 L/h</span></div><strong>52%</strong><div class="progress"><i style="width:52%"></i></div><small>312 L disponíveis</small></div>
+        <div class="fuel-card"><div><b>🚜 Trator 03</b><span>Consumo médio: 6,8 L/h</span></div><strong>91%</strong><div class="progress"><i style="width:91%"></i></div><small>546 L disponíveis</small></div>
+        <div class="fuel-card danger-fuel"><div><b>🚜 Trator 04</b><span>Consumo médio: 9,7 L/h</span></div><strong>18%</strong><div class="progress"><i style="width:18%"></i></div><small>108 L disponíveis • ⚠️ abasteça</small></div>
+      </div>
+    </section>
+
+    <section id="manutencao" class="page">
+      <div class="page-head"><div><p class="eyebrow">OFICINA</p><h1>Manutenção</h1><p>Evite paradas inesperadas mantendo sua frota em dia.</p></div><button class="primary" id="addMaintenance">＋ Nova manutenção</button></div>
+      <div class="maintenance-grid"><div class="panel"><h2>🚜 Trator 01</h2><p class="muted">Próxima manutenção em <b>47 horas</b></p><div class="checks"><span>Motor <b>🟢</b></span><span>Óleo <b>🟢</b></span><span>Pneus <b>🟢</b></span><span>Filtro <b>🟢</b></span></div></div><div class="panel warning-panel"><h2>🚜 Trator 02</h2><p class="muted">Próxima manutenção em <b>12 horas</b></p><div class="checks"><span>Motor <b>🟢</b></span><span>Óleo <b>🟡</b></span><span>Pneus <b>🟢</b></span><span>Filtro <b>🟡</b></span></div><div class="warning-note">⚠️ Manutenção recomendada em breve.</div></div><div class="panel"><h2>🚜 Trator 03</h2><p class="muted">Próxima manutenção em <b>83 horas</b></p><div class="checks"><span>Motor <b>🟢</b></span><span>Óleo <b>🟢</b></span><span>Pneus <b>🟢</b></span><span>Filtro <b>🟢</b></span></div></div></div>
+    </section>
+
+    <section id="relatorios" class="page">
+      <div class="page-head"><div><p class="eyebrow">ANÁLISE</p><h1>Relatórios</h1><p>Indicadores para ajudar na tomada de decisões.</p></div><button class="primary" id="exportReport">⬇ Exportar relatório</button></div>
+      <div class="report-grid"><div class="panel report-big"><h2>Produção por dia</h2><p class="muted">Últimos 7 dias</p><div class="report-chart"><span style="height:42%"><b>24</b></span><span style="height:58%"><b>33</b></span><span style="height:51%"><b>29</b></span><span style="height:72%"><b>41</b></span><span style="height:88%"><b>50</b></span><span style="height:62%"><b>35</b></span><span style="height:76%"><b>43</b></span></div><div class="chart-labels"><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span></div></div><div class="panel"><h2>Resumo do mês</h2><div class="summary"><span>Área cultivada <b>426 ha</b></span><span>Horas de máquina <b>1.284 h</b></span><span>Combustível usado <b>2.841 L</b></span><span>Produção total <b>348 t</b></span><span>Eficiência média <b>91%</b></span></div></div></div>
+    </section>
+
+    <footer>Diessel Solutions • Projeto de Vida • </footer>
+  </main>
+
+  <div class="modal" id="modal"><div class="modal-box"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast">Ação realizada com sucesso!</div>
+  <script src="js/app.js"></script>
+</body>
+</html>
